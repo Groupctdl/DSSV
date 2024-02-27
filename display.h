@@ -5,37 +5,37 @@ const int SPACE = 32;
 const int BP = 8; // backspace
 const int SPOINTX = 0;
 const int SPOINTY = 0;
-const int LPOINTX = 1600;
-const int LPOINTY = 800;
+const int LPOINTX = 1350;
+const int LPOINTY = 700;
 
 const int HEADSPOINTX = 0;
 const int HEADSPOINTY = 0;
-const int HEADLPOINTX = 1600;
+const int HEADLPOINTX = 1350;
 const int HEADLPOINTY = 60; // chinh sua
 
 const int MENUSPOINTX = 0;
 const int MENUSPOINTY = 70;
-const int MENULPOINTX = 400;
+const int MENULPOINTX = 320;
 const int MENULPOINTY = 280;
 
 const int BOTTSPOINTX = 0;
-const int BOTTSPOINTY = 700;
-const int BOTTLPOINTX = 1600;
-const int BOTTLPOINTY = 700;
+const int BOTTSPOINTY = 600;
+const int BOTTLPOINTX = 1350;
+const int BOTTLPOINTY = 600;
 
-const int NOTISPOINTX = 500; // notice
-const int NOTISPOINTY = 200;
-const int NOTILPOINTX = 1110;
-const int NOTILPOINTY = 400;
+const int NOTISPOINTX = 400; // notice
+const int NOTISPOINTY = 150;
+const int NOTILPOINTX = 1010;
+const int NOTILPOINTY = 350;
 
-const int LISTSPOINTX = 420;
+const int LISTSPOINTX = 340;
 const int LISTSPOINTY = 70;
-const int LISTLPOINTX = 1600;
-const int LISTLPOINTY = 700;
+const int LISTLPOINTX = 1350;
+const int LISTLPOINTY = 600;
 
-const int TABLSPOINTX = 422;
+const int TABLSPOINTX = 342;
 const int TABLSPOINTY = 190;
-const int TABLLPOINTX = 1598;
+const int TABLLPOINTX = 1350;
 const int TABLLPOINTY = 480;
 
 const int BOXSPOINTX = LISTSPOINTX + 250;
@@ -65,7 +65,7 @@ void createHeader(){
 void createBottom(){
 	setlinestyle(0, 0, 2); // tao trang bottom
 	line(BOTTSPOINTX, BOTTSPOINTY, BOTTLPOINTX, BOTTLPOINTY); // tao duong ke 
-	outtextxy(10, 710, "Thong tin them : "); 
+	outtextxy(10, BOTTLPOINTY + 10, "Thong tin them : "); 
 	
 	setDefault();
 }
@@ -75,13 +75,13 @@ int createNotice(char *text1, char* text2){
 	createHeader();
 	
 	setcolor(LIGHTRED); // thiet lap mau chu
-	outtextxy(750, 205, "Thong bao!");
+	outtextxy(NOTISPOINTX + 250, NOTISPOINTY + 50, "Thong bao!");
 	setcolor(BLACK);
 	rectangle(NOTISPOINTX, NOTISPOINTY, NOTILPOINTX, NOTILPOINTY); // tao hop thong bao to khung theo mau chu k to mau nen
 	
-	outtextxy(530, 250, text1);
-	outtextxy(530, 280, text2);
-	outtextxy(530, 310, "Nhan Enter de tiep tuc/ Esc de thoat chuong trinh");
+	outtextxy(NOTISPOINTX + 20, NOTISPOINTY + 100, text1);
+	outtextxy(NOTISPOINTX + 20, NOTISPOINTY + 130, text2);
+	outtextxy(NOTISPOINTX + 20, NOTISPOINTY + 160, "Nhan Enter de tiep tuc/ Esc de thoat chuong trinh");
 	
 	setDefault;
 	
@@ -109,17 +109,17 @@ void createMenu(int selected){
 	if(selected == 1){
 		setbkcolor(LIGHTBLUE);
 		setfillstyle(SOLID_FILL, LIGHTBLUE);
-		bar(MENUSPOINTX, MENUSPOINTY, MENUSPOINTX + 400, MENUSPOINTY + 40);
-		outtextxy(10, MENUSPOINTY + 10, "Danh sach lop tin chi");
+		bar(MENUSPOINTX, MENUSPOINTY, MENUSPOINTX + 300, MENUSPOINTY + 40);
+		outtextxy(10, MENUSPOINTY + 10, "Quan ly lop tin chi");
 	}
 	else{
 		setbkcolor(WHITE);
 		setfillstyle(SOLID_FILL, WHITE);
-		bar(MENUSPOINTX, MENUSPOINTY, MENUSPOINTX + 400, MENUSPOINTY + 40);
-		outtextxy(10, MENUSPOINTY + 10, "Danh sach lop tin chi");
+		bar(MENUSPOINTX, MENUSPOINTY, MENUSPOINTX + 300, MENUSPOINTY + 40);
+		outtextxy(10, MENUSPOINTY + 10, "Quan ly lop tin chi");
 	}
 	setcolor(LIGHTGRAY);
-	rectangle(MENUSPOINTX, MENUSPOINTY, MENUSPOINTX + 400, MENUSPOINTY + 40);
+	rectangle(MENUSPOINTX, MENUSPOINTY, MENUSPOINTX + 300, MENUSPOINTY + 40);
 	
 	// tao menu 2
 	
@@ -127,34 +127,34 @@ void createMenu(int selected){
 	if(selected == 2){
 		setbkcolor(LIGHTBLUE);
 		setfillstyle(SOLID_FILL, LIGHTBLUE);
-		bar(MENUSPOINTX, MENUSPOINTY + 40, MENUSPOINTX + 400, MENUSPOINTY + 80);
-		outtextxy(10, MENUSPOINTY + 50 , "Danh sach sinh vien");
+		bar(MENUSPOINTX, MENUSPOINTY + 40, MENUSPOINTX + 300, MENUSPOINTY + 80);
+		outtextxy(10, MENUSPOINTY + 50 , "Quan ly sinh vien");
 	}
 	else{
 		setbkcolor(WHITE);
 		setfillstyle(SOLID_FILL, WHITE);
-		bar(MENUSPOINTX, MENUSPOINTY + 40, MENUSPOINTX + 400, MENUSPOINTY + 80);
-		outtextxy(10, MENUSPOINTY + 50 , "Danh sach sinh vien");
+		bar(MENUSPOINTX, MENUSPOINTY + 40, MENUSPOINTX + 300, MENUSPOINTY + 80);
+		outtextxy(10, MENUSPOINTY + 50 , "Quan ly sinh vien");
 	}
 	setcolor(LIGHTGRAY);
-	rectangle(MENUSPOINTX, MENUSPOINTY + 40, MENUSPOINTX + 400, MENUSPOINTY + 80);
+	rectangle(MENUSPOINTX, MENUSPOINTY + 40, MENUSPOINTX + 300, MENUSPOINTY + 80);
 	
 	// tao menu 3
 	setcolor(BLACK);
 	if(selected == 3){
 		setbkcolor(LIGHTBLUE);
 		setfillstyle(SOLID_FILL, LIGHTBLUE);
-		bar(MENUSPOINTX,  MENUSPOINTY + 80, MENUSPOINTX + 400, MENUSPOINTY + 120);
-		outtextxy(10, MENUSPOINTY + 90, "Danh sach mon hoc");
+		bar(MENUSPOINTX,  MENUSPOINTY + 80, MENUSPOINTX + 300, MENUSPOINTY + 120);
+		outtextxy(10, MENUSPOINTY + 90, "Quan ly mon hoc");
 	}
 	else{
 		setbkcolor(WHITE);
 		setfillstyle(SOLID_FILL, WHITE);
-		bar(MENUSPOINTX,  MENUSPOINTY + 80, MENUSPOINTX + 400, MENUSPOINTY + 120);
-		outtextxy(10, MENUSPOINTY + 90, "Danh sach mon hoc");
+		bar(MENUSPOINTX,  MENUSPOINTY + 80, MENUSPOINTX + 300, MENUSPOINTY + 120);
+		outtextxy(10, MENUSPOINTY + 90, "Quan ly mon hoc");
 	}
 	setcolor(LIGHTGRAY);
-	rectangle(MENUSPOINTX,  MENUSPOINTY + 80, MENUSPOINTX + 400, MENUSPOINTY + 120);
+	rectangle(MENUSPOINTX,  MENUSPOINTY + 80, MENUSPOINTX + 300, MENUSPOINTY + 120);
 
 	
 	// tao menu 4
@@ -162,17 +162,17 @@ void createMenu(int selected){
 	if(selected == 4){
 		setbkcolor(LIGHTBLUE);
 		setfillstyle(SOLID_FILL, LIGHTBLUE);
-		bar(MENUSPOINTX, MENUSPOINTY + 120, MENUSPOINTX + 400, MENUSPOINTY + 160);
-		outtextxy(10, MENUSPOINTY + 130, "Danh sach dang ky lop hoc");
+		bar(MENUSPOINTX, MENUSPOINTY + 120, MENUSPOINTX + 300, MENUSPOINTY + 160);
+		outtextxy(10, MENUSPOINTY + 130, "Quan ly dang ky lop hoc");
 	}
 	else{
 		setbkcolor(WHITE);
 		setfillstyle(SOLID_FILL, WHITE);
-		bar(MENUSPOINTX, MENUSPOINTY + 120, MENUSPOINTX + 400, MENUSPOINTY + 160);
-		outtextxy(10, MENUSPOINTY + 130, "Danh sach dang ky lop hoc");
+		bar(MENUSPOINTX, MENUSPOINTY + 120, MENUSPOINTX + 300, MENUSPOINTY + 160);
+		outtextxy(10, MENUSPOINTY + 130, "Quan ly dang ky lop hoc");
 	}
 	setcolor(LIGHTGRAY);
-	rectangle(MENUSPOINTX, MENUSPOINTY + 120, MENUSPOINTX + 400, MENUSPOINTY + 160);
+	rectangle(MENUSPOINTX, MENUSPOINTY + 120, MENUSPOINTX + 300, MENUSPOINTY + 160);
 
 	setDefault();
 	createBottom();
@@ -199,20 +199,20 @@ void createList(){ // tao khung nho ben trong
 	setlinestyle(0, 0, 1);
 	setcolor(LIGHTGRAY);
 	
-	bar(TABLSPOINTX, TABLSPOINTY, TABLLPOINTX, TABLSPOINTY + 40 ); // tao table
+	bar(TABLSPOINTX, TABLSPOINTY, TABLLPOINTX, TABLSPOINTY + 40 ); // tao table hinh chu nhat
 	rectangle(TABLSPOINTX, TABLSPOINTY, TABLLPOINTX, TABLLPOINTY);
-	line(TABLSPOINTX, TABLSPOINTY + 40, TABLLPOINTX, TABLSPOINTY + 40);
+	line(TABLSPOINTX, TABLSPOINTY + 40, TABLLPOINTX, TABLSPOINTY + 40); // tao duong ke ngang
 	line(TABLSPOINTX, TABLSPOINTY + 90, TABLLPOINTX, TABLSPOINTY + 90);
 	line(TABLSPOINTX, TABLSPOINTY + 140, TABLLPOINTX, TABLSPOINTY + 140);
 	line(TABLSPOINTX, TABLSPOINTY + 190, TABLLPOINTX, TABLSPOINTY + 190);
 	line(TABLSPOINTX, TABLSPOINTY + 240, TABLLPOINTX, TABLSPOINTY + 240);
 	
-	line(TABLSPOINTX + 130, TABLSPOINTY, TABLSPOINTX + 130, TABLLPOINTY);
-	line(TABLSPOINTX + 330, TABLSPOINTY, TABLSPOINTX + 330, TABLLPOINTY);	
-	line(TABLSPOINTX + 500, TABLSPOINTY, TABLSPOINTX + 500, TABLLPOINTY);	
-	line(TABLSPOINTX + 670, TABLSPOINTY, TABLSPOINTX + 670, TABLLPOINTY);	
-	line(TABLSPOINTX + 840, TABLSPOINTY, TABLSPOINTX + 840, TABLLPOINTY);	
-	line(TABLSPOINTX + 1010, TABLSPOINTY, TABLSPOINTX + 1010, TABLLPOINTY);	
+	line(TABLSPOINTX + 145, TABLSPOINTY, TABLSPOINTX + 145, TABLLPOINTY); // tao duong ke doc
+	line(TABLSPOINTX + 365, TABLSPOINTY, TABLSPOINTX + 365, TABLLPOINTY);	
+	line(TABLSPOINTX + 510, TABLSPOINTY, TABLSPOINTX + 510, TABLLPOINTY);	
+	line(TABLSPOINTX + 610, TABLSPOINTY, TABLSPOINTX + 610, TABLLPOINTY);	
+	line(TABLSPOINTX + 755, TABLSPOINTY, TABLSPOINTX + 755, TABLLPOINTY);	
+	line(TABLSPOINTX + 900, TABLSPOINTY, TABLSPOINTX + 900, TABLLPOINTY);	
 	
 	
 	setDefault();
@@ -231,12 +231,12 @@ void drawFindStudent(char *text){
 	setbkcolor(LIGHTBLUE);
 	setcolor(WHITE);
 	outtextxy(TABLSPOINTX + 10, TABLSPOINTY + 10, "MSSV");
-	outtextxy(TABLSPOINTX + 140, TABLSPOINTY + 10, "HO");
-	outtextxy(TABLSPOINTX + 340, TABLSPOINTY + 10, "TEN");
-	outtextxy(TABLSPOINTX + 510, TABLSPOINTY + 10, "PHAI");
-	outtextxy(TABLSPOINTX + 680, TABLSPOINTY + 10, "SDT");
-	outtextxy(TABLSPOINTX + 850, TABLSPOINTY + 10, "MA LOP");
-	outtextxy(TABLSPOINTX + 1020, TABLSPOINTY + 10, "KHOA");
+	outtextxy(TABLSPOINTX + 155, TABLSPOINTY + 10, "HO");
+	outtextxy(TABLSPOINTX + 375, TABLSPOINTY + 10, "TEN");
+	outtextxy(TABLSPOINTX + 520, TABLSPOINTY + 10, "PHAI");
+	outtextxy(TABLSPOINTX + 620, TABLSPOINTY + 10, "SDT");
+	outtextxy(TABLSPOINTX + 765, TABLSPOINTY + 10, "MA LOP");
+	outtextxy(TABLSPOINTX + 910, TABLSPOINTY + 10, "KHOA");
 	
 	setDefault();
 }

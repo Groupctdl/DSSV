@@ -3,34 +3,6 @@
 #include <stdio.h>
 #include "display.h"
 
-//void inputStu(student &stu){
-//	
-//}
-
-
-//struct student{
-//	char id[15];
-//	char firstName[15], lastName[15], gender[15], phone[15], idClass[15];
-//};
-//
-//struct nodeStudent{
-//	student stu;
-//	nodeStudent* next;
-//	nodeStudent(student stu){
-//		this->stu = stu;
-//		this->next = NULL;
-//	}
-//};
-
-//void openOnFile(node *listStudent, char *flistStudent){
-//	ifstream f;
-//	
-//	f.open(flistStudent, ios::in);
-//	
-//	f.close();
-//}
-//
-
 
 
 void findStudent(char* text){
@@ -70,7 +42,7 @@ void findStudent(char* text){
 int main(){
 	initwindow(LPOINTX, LPOINTY);
 	char flistStudent[50] = "D:\\listStudent";
-//	getch();
+	getch();
 	int selected = 1;
 	createMenu(selected);
 	while(1){
@@ -81,7 +53,7 @@ int main(){
 //					case 1: 
 	
 					case 2:
-						findStudent("Tra cuu thong tin");
+						findStudent("Quan ly sinh vien");
 						getch();
 						closegraph();	
 //						node* listStudent;
