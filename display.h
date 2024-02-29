@@ -40,13 +40,17 @@ const int LISTLPOINTY = 600;
 const int TABLSPOINTX = 342;
 const int TABLSPOINTY = 190;
 const int TABLLPOINTX = 1350;
-const int TABLLPOINTY = 480;
+const int TABLLPOINTY = 430;
 
-const int BOXSPOINTX = LISTSPOINTX + 250;
+const int BOXSPOINTX = LISTSPOINTX + 280;
 const int BOXSPOINTY = LISTSPOINTY + 70;
-const int BOXLPOINTX = LISTSPOINTX + 450;
+const int BOXLPOINTX = LISTSPOINTX + 480;
 const int BOXLPOINTY = LISTSPOINTY + 100;
 
+const int FORMSPOINTX = TABLSPOINTX;
+const int FORMSPOINTY = TABLLPOINTY + 40;
+const int FORMLPOINTX = TABLLPOINTX;
+const int FORMLPOINTY = TABLLPOINTY + 80;
 
 void setDefault(){
 	setbkcolor(15); // mac dinh nen la mau trang
@@ -56,17 +60,69 @@ void setDefault(){
 	setlinestyle(0, 1, 1);
 }
 
-void resetBox(){ // reset box nhap mac dinh khong co gi
+void resetBox(int COLOR){ // reset box nhap mac dinh khong co gi
 	setfillstyle(SOLID_FILL, WHITE);
-	bar(BOXSPOINTX, BOXSPOINTY, BOXLPOINTX, BOXLPOINTY);
-	setcolor(BLACK);
+	bar(BOXSPOINTX, BOXSPOINTY, BOXLPOINTX, BOXLPOINTY); // xoa toan bo du lieu trong muc nhap
+	setcolor(COLOR);
 	rectangle(BOXSPOINTX, BOXSPOINTY, BOXLPOINTX, BOXLPOINTY);
 	setDefault();
 }
 
+void resetInforStudentBox(int num, int COLOR){
+	switch(num){
+		case 1:
+			setfillstyle(SOLID_FILL, WHITE);
+			bar(FORMSPOINTX, FORMSPOINTY, TABLSPOINTX + 145, FORMLPOINTY); // xoa sach muc nhap
+			
+			setcolor(COLOR);
+			rectangle(FORMSPOINTX, FORMSPOINTY, TABLSPOINTX + 145, FORMLPOINTY);
+			setDefault();
+			break;
+		case 2:
+			setfillstyle(SOLID_FILL, WHITE);
+			bar(TABLSPOINTX + 145, FORMSPOINTY, TABLSPOINTX + 365, FORMLPOINTY); // xoa sach muc nhap
+			
+			setcolor(COLOR);
+			rectangle(TABLSPOINTX + 145, FORMSPOINTY, TABLSPOINTX + 365, FORMLPOINTY);
+			setDefault();
+			break;
+		case 3:
+			setfillstyle(SOLID_FILL, WHITE);
+			bar(TABLSPOINTX + 365, FORMSPOINTY, TABLSPOINTX + 510, FORMLPOINTY); // xoa sach muc nhap
+			
+			setcolor(COLOR);
+			rectangle(TABLSPOINTX + 365, FORMSPOINTY, TABLSPOINTX + 510, FORMLPOINTY);
+			setDefault();
+			break;
+		case 4:
+			setfillstyle(SOLID_FILL, WHITE);
+			bar(TABLSPOINTX + 510, FORMSPOINTY, TABLSPOINTX + 610, FORMLPOINTY); // xoa sach muc nhap
+			
+			setcolor(COLOR);
+			rectangle(TABLSPOINTX + 510, FORMSPOINTY, TABLSPOINTX + 610, FORMLPOINTY);
+			setDefault();
+			break;
+		case 5:
+			setfillstyle(SOLID_FILL, WHITE);
+			bar(TABLSPOINTX + 610, FORMSPOINTY, TABLSPOINTX + 755, FORMLPOINTY); // xoa sach muc nhap
+			
+			setcolor(COLOR);
+			rectangle(TABLSPOINTX + 610, FORMSPOINTY, TABLSPOINTX + 755, FORMLPOINTY);
+			setDefault();
+			break;
+		case 6:
+			setfillstyle(SOLID_FILL, WHITE);
+			bar(TABLSPOINTX + 755, FORMSPOINTY, TABLSPOINTX + 900, FORMLPOINTY); // xoa sach muc nhap
+			
+			setcolor(COLOR);
+			rectangle(TABLSPOINTX + 755, FORMSPOINTY, TABLSPOINTX + 900, FORMLPOINTY);
+			setDefault();
+			break;
+	}
+}
 void resetText(){ // reset thong bao mac dinh khong co gi
 	setfillstyle(SOLID_FILL, WHITE);
-	bar(BOXLPOINTX + 20, LISTSPOINTY + 70, BOXLPOINTX + 400, LISTSPOINTY + 100);
+	bar(BOXLPOINTX + 20, LISTSPOINTY + 70, LPOINTX - 10, LISTSPOINTY + 100);
 	setDefault();
 }
 
@@ -81,6 +137,35 @@ void createHeader(){
 	setDefault();
 }
 
+void createFormStudent(){
+	setfillstyle(SOLID_FILL, WHITE);
+	bar(FORMSPOINTX, FORMSPOINTY, FORMLPOINTX, FORMLPOINTY); // xoa sach khong gian
+	
+	setfillstyle(SOLID_FILL, BLUE);
+	bar(TABLSPOINTX + 900, FORMSPOINTY, FORMLPOINTX, FORMLPOINTY);
+	setcolor(LIGHTGRAY);
+	rectangle(FORMSPOINTX, FORMSPOINTY, FORMLPOINTX, FORMLPOINTY); // tao khung hinh chu nhat
+	
+	line(TABLSPOINTX + 145, FORMSPOINTY, TABLSPOINTX + 145, FORMLPOINTY); // tao duong ke doc
+	line(TABLSPOINTX + 365, FORMSPOINTY, TABLSPOINTX + 365, FORMLPOINTY);	
+	line(TABLSPOINTX + 510, FORMSPOINTY, TABLSPOINTX + 510, FORMLPOINTY);	
+	line(TABLSPOINTX + 610, FORMSPOINTY, TABLSPOINTX + 610, FORMLPOINTY);	
+	line(TABLSPOINTX + 755, FORMSPOINTY, TABLSPOINTX + 755, FORMLPOINTY);	
+	line(TABLSPOINTX + 900, FORMSPOINTY, TABLSPOINTX + 900, FORMLPOINTY);
+	
+	setcolor(BLACK);
+	outtextxy(TABLSPOINTX + 10, FORMSPOINTY - 25, "Mssv");
+	outtextxy(TABLSPOINTX + 155, FORMSPOINTY - 25, "Ho");
+	outtextxy(TABLSPOINTX + 375, FORMSPOINTY - 25, "Ten");
+	outtextxy(TABLSPOINTX + 520, FORMSPOINTY - 25, "Phai");
+	outtextxy(TABLSPOINTX + 620, FORMSPOINTY - 25, "Sdt");
+	outtextxy(TABLSPOINTX + 765, FORMSPOINTY - 25, "Khoa");
+	
+	setbkcolor(BLUE);
+	outtextxy(TABLSPOINTX + 930, FORMSPOINTY + 10, "Add");
+	
+	setDefault();	
+}
 void createBottom(){
 	setlinestyle(0, 0, 2); // tao trang bottom
 	line(BOTTSPOINTX, BOTTSPOINTY, BOTTLPOINTX, BOTTLPOINTY); // tao duong ke 
@@ -89,6 +174,17 @@ void createBottom(){
 	setDefault();
 }
 
+void createBox(int COLOR, char *text){
+	
+	setfillstyle(SOLID_FILL, WHITE);
+	bar(TABLSPOINTX + 5, BOXSPOINTY, BOXLPOINTX, BOXLPOINTY + 2); // xoa sach du lieu trong box
+	rectangle(BOXSPOINTX, BOXSPOINTY, BOXLPOINTX, BOXLPOINTY); // tao khung box
+	
+	setcolor(COLOR);
+	settextstyle(COMPLEX_FONT, HORIZ_DIR, 2); 
+	outtextxy(LISTSPOINTX + 10, LISTSPOINTY + 80, text); // viet lai du lieu
+	setDefault();
+}
 int createNotice(char *text1, char* text2){
 	cleardevice();
 	createHeader();
@@ -214,7 +310,7 @@ void createTable(char *text){ // tao khung lon ben ngoai
 
 void createList(){ // tao khung nho ben trong
 	
-	setfillstyle(SOLID_FILL, WHITE);
+	setfillstyle(SOLID_FILL, WHITE); // xoa sach thong tin the hien tren bang 
 	bar(TABLSPOINTX, TABLSPOINTY, TABLLPOINTX, TABLLPOINTY);
 	
 	setfillstyle(SOLID_FILL, LIGHTBLUE);
@@ -227,7 +323,6 @@ void createList(){ // tao khung nho ben trong
 	line(TABLSPOINTX, TABLSPOINTY + 90, TABLLPOINTX, TABLSPOINTY + 90);
 	line(TABLSPOINTX, TABLSPOINTY + 140, TABLLPOINTX, TABLSPOINTY + 140);
 	line(TABLSPOINTX, TABLSPOINTY + 190, TABLLPOINTX, TABLSPOINTY + 190);
-	line(TABLSPOINTX, TABLSPOINTY + 240, TABLLPOINTX, TABLSPOINTY + 240);
 	
 	line(TABLSPOINTX + 145, TABLSPOINTY, TABLSPOINTX + 145, TABLLPOINTY); // tao duong ke doc
 	line(TABLSPOINTX + 365, TABLSPOINTY, TABLSPOINTX + 365, TABLLPOINTY);	
@@ -236,20 +331,6 @@ void createList(){ // tao khung nho ben trong
 	line(TABLSPOINTX + 755, TABLSPOINTY, TABLSPOINTX + 755, TABLLPOINTY);	
 	line(TABLSPOINTX + 900, TABLSPOINTY, TABLSPOINTX + 900, TABLLPOINTY);	
 	
-	
-	setDefault();
-}
-
-
-void drawUpdateStudent(){
-	
-	createTable("Tra cuu thong tin");
-	createList();
-	
-	settextstyle(COMPLEX_FONT, HORIZ_DIR, 2); // tao khung nhap mssv
-	outtextxy(LISTSPOINTX + 10, LISTSPOINTY + 80, "Vui long nhap MSSV:");
-	rectangle(BOXSPOINTX, BOXSPOINTY, BOXLPOINTX, BOXLPOINTY); 
-
 	settextstyle(COMPLEX_FONT, HORIZ_DIR, 1); // tieu de tren bang danh sach
 	setbkcolor(LIGHTBLUE);
 	setcolor(WHITE);
@@ -261,14 +342,41 @@ void drawUpdateStudent(){
 	outtextxy(TABLSPOINTX + 765, TABLSPOINTY + 10, "MA LOP");
 	outtextxy(TABLSPOINTX + 910, TABLSPOINTY + 10, "KHOA");
 	
+	setDefault();
+}
+
+
+void drawInsertStudent(){
+	
+	// an (xoa) cac muc sua, xoa thong tin 
+	
+	setfillstyle(SOLID_FILL, WHITE);
+	bar(TABLSPOINTX + 390, TABLLPOINTY + 100, TABLSPOINTX + 610, TABLLPOINTY + 140);
+	bar(TABLSPOINTX + 695, TABLLPOINTY + 100, TABLSPOINTX + 915, TABLLPOINTY + 140);
+	setDefault();
+	
+	createBox(BLACK, "Vui long nhap Ma lop:");
+	createList();
+	createFormStudent();
+	
+	setDefault();
+}
+
+void drawUpdateStudent(){
+	
+	createTable("Tra cuu thong tin");
+	createList();
+	createBox(BLACK, "Vui long nhap MSSV:");
+	
+	
 	setfillstyle(SOLID_FILL, LIGHTGRAY);
 	setbkcolor(LIGHTGRAY);
-	bar(TABLSPOINTX + 85, TABLLPOINTY + 50, TABLSPOINTX + 305, TABLLPOINTY + 90);
-	outtextxy(TABLSPOINTX + 115, TABLLPOINTY + 60, "Them thong tin");
-	bar(TABLSPOINTX + 390, TABLLPOINTY + 50, TABLSPOINTX + 610, TABLLPOINTY + 90);
-	outtextxy(TABLSPOINTX + 420, TABLLPOINTY + 60, "Sua thong tin");
-	bar(TABLSPOINTX + 695, TABLLPOINTY + 50, TABLSPOINTX + 915, TABLLPOINTY + 90);
-	outtextxy(TABLSPOINTX + 725, TABLLPOINTY + 60, "Xoa thong tin");
+	bar(TABLSPOINTX + 85, TABLLPOINTY + 100, TABLSPOINTX + 305, TABLLPOINTY + 140);
+	outtextxy(TABLSPOINTX + 115, TABLLPOINTY + 110, "Them thong tin");
+	bar(TABLSPOINTX + 390, TABLLPOINTY + 100, TABLSPOINTX + 610, TABLLPOINTY + 140);
+	outtextxy(TABLSPOINTX + 420, TABLLPOINTY + 110, "Sua thong tin");
+	bar(TABLSPOINTX + 695, TABLLPOINTY + 100, TABLSPOINTX + 915, TABLLPOINTY + 140);
+	outtextxy(TABLSPOINTX + 725, TABLLPOINTY + 110, "Xoa thong tin");
 	setDefault();
 }
 
@@ -312,7 +420,7 @@ void drawStudentManagement(int selected){
 	}
 	
 	setcolor(LIGHTGRAY);
-	line(MENUSPOINTX + 10, MENUSPOINTY + 45, MENUSPOINTX + 290, MENUSPOINTY + 45);
+	line(MENUSPOINTX + 10, MENUSPOINTY + 45, MENUSPOINTX + 290, MENUSPOINTY + 45); // Tao duong ke ngang cho menu
 	line(MENUSPOINTX + 10, MENUSPOINTY + 85, MENUSPOINTX + 290, MENUSPOINTY + 85);
 	line(MENUSPOINTX + 10, MENUSPOINTY + 125, MENUSPOINTX + 290, MENUSPOINTY + 125);
 //	line(MENUSPOINTX + 10,  MENUSPOINTY + 165, MENUSPOINTX + 290, MENUSPOINTY + 165);

@@ -20,4 +20,8 @@ char* tochar(string s) {
     text[s.size()] = '\0';
     return text;
 }
+
+void formatKey(char &key){
+	if(islower(key)) key = toupper(key);
+}
 #endif
